@@ -6,4 +6,5 @@ module org.example.Trees {
 
     opens org.example.Trees to javafx.fxml;
     exports org.example.Trees;
+    requires transitive javafx.graphics;
 }
