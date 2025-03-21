@@ -68,7 +68,7 @@ public class TreeVisualizerController {
 
         HBox buttonBox = new HBox(10, insertButton, deleteButton, searchButton, clearButton);
 
-        treeCanvas = new Canvas(1000, 675);
+        treeCanvas = new Canvas(1000, 475);
 
         outputArea = new TextArea();
         outputArea.setEditable(false);

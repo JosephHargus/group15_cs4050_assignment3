@@ -62,7 +62,7 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T> implements Seriali
 
     @Override
     public Color color() {
-        return Color.PLUM;
+        return Color.PURPLE;
     }
 
     @Override

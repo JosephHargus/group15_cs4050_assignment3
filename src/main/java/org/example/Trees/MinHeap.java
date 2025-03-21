@@ -60,11 +60,13 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T> implements Seriali
         return "Minimum Heap";
     }
 
+    //returns the color for the visualization
     @Override
     public Color color() {
-        return Color.MEDIUMBLUE;
+        return Color.BLUE;
     }
 
+    //returns first element in ArrayList, which is also the root node
     @Override
     public TreeNode<T> getRoot() {
         return heap.isEmpty() ? null : new MinHeap.HeapNode(0);
@@ -85,9 +87,13 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T> implements Seriali
     protected void heapifyDown(int index) {
         T left = heap.get(getLeftChildIndex(index));
         T right = heap.get(getRightChildIndex(index));
+        heap.set(index, null);
         if(left.compareTo(right)>0) {
             swap(index, heap.indexOf(right));
-        } else {swap(index, heap.indexOf(left));}
+            heapifyDown(heap.indexOf(right));
+        }
+        swap(index, heap.indexOf(left));
+        heapifyDown(heap.indexOf(left));
     }
 
     protected void swap(int i, int j) {
