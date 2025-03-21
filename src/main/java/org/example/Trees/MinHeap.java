@@ -87,13 +87,9 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T> implements Seriali
     protected void heapifyDown(int index) {
         T left = heap.get(getLeftChildIndex(index));
         T right = heap.get(getRightChildIndex(index));
-        heap.set(index, null);
         if(left.compareTo(right)>0) {
             swap(index, heap.indexOf(right));
-            heapifyDown(heap.indexOf(right));
-        }
-        swap(index, heap.indexOf(left));
-        heapifyDown(heap.indexOf(left));
+        } else {swap(index, heap.indexOf(left));}
     }
 
     protected void swap(int i, int j) {
