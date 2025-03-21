@@ -6,6 +6,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  This class serves to implement the Maximum Heap requirements.
+ *  @param <T>
+ *  @author Athlie54
+ */
 public class MaxHeap<T extends Comparable<T>> extends Heap<T> implements Serializable {
     protected ArrayList<T> heap;
 
@@ -70,8 +75,13 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T> implements Seriali
         return heap.isEmpty() ? null : new MaxHeap.HeapNode(0);
     }
 
-    //recursive function to correctly insert a new element
-    //Author: Kaitlyn Self
+    /**
+     *  A recursive function which inserts a new element by comparing
+     *  the new element to its parent and adjusting accordingly.
+     *
+     *  @param index The index of the node being sorted
+     *  @author Athlie54
+     */
     protected void heapifyUp(int index) {
         int parent = getParentIndex(index);
         if (heap.get(index).compareTo(heap.get(parent)) > 0) {
@@ -80,8 +90,14 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T> implements Seriali
         }
     }
 
-    //recursive function to remove a branch/root element
-    //Author: Kaitlyn Self
+    /**
+     *  An iterative function which removes an element by comparing
+     *  the element to its children and determining how to fill the
+     *  now-empty space.
+     *
+     *  @param index The index of the node being moved
+     *  @author Athlie54
+     */
     protected void heapifyDown(int index) {
         T left = heap.get(getLeftChildIndex(index));
         T right = heap.get(getRightChildIndex(index));
